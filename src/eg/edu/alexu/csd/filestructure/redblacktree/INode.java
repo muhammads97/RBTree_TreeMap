@@ -1,5 +1,6 @@
 package eg.edu.alexu.csd.filestructure.redblacktree;
 
+
 public interface INode<T extends Comparable<T>, V> {
 	static final boolean RED   = true;
     static final boolean BLACK = false;
