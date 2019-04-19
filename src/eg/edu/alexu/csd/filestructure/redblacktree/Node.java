@@ -1,83 +1,85 @@
 package eg.edu.alexu.csd.filestructure.redblacktree;
 
-public class Node implements INode{
-
+public class Node <T extends Comparable<T>, V> implements INode<T, V>{
+	private INode<T, V> parent;
+	private INode<T, V> l_child;
+	private INode<T, V> r_child;
+	private T key;
+	private V value;
+	private boolean color; 
+	
+	public Node() {
+		parent = null;
+		l_child = null;
+		r_child = null;
+		value = null;
+		key = null;
+		color = INode.RED;
+	}
+	
 	@Override
-	public void setParent(INode parent) {
-		// TODO Auto-generated method stub
-		
+	public void setParent(INode<T, V> parent) {
+		this.parent = parent;
 	}
 
 	@Override
-	public INode getParent() {
-		// TODO Auto-generated method stub
-		return null;
+	public INode<T, V> getParent() {
+		return parent;
 	}
 
 	@Override
-	public void setLeftChild(INode leftChild) {
-		// TODO Auto-generated method stub
-		
+	public void setLeftChild(INode<T, V> leftChild) {
+		this.l_child = leftChild;
 	}
 
 	@Override
-	public INode getLeftChild() {
-		// TODO Auto-generated method stub
-		return null;
+	public INode<T, V> getLeftChild() {
+		return l_child;
 	}
 
 	@Override
-	public void setRightChild(INode rightChild) {
-		// TODO Auto-generated method stub
-		
+	public void setRightChild(INode<T, V> rightChild) {
+		this.r_child = rightChild;
 	}
 
 	@Override
-	public INode getRightChild() {
-		// TODO Auto-generated method stub
-		return null;
+	public INode<T, V> getRightChild() {
+		return r_child;
 	}
 
 	@Override
-	public Comparable getKey() {
-		// TODO Auto-generated method stub
-		return null;
+	public T getKey() {
+		return key;
 	}
 
 	@Override
-	public void setKey(Comparable key) {
-		// TODO Auto-generated method stub
-		
+	public void setKey(T key) {
+		this.key = key;
 	}
 
 	@Override
-	public Object getValue() {
-		// TODO Auto-generated method stub
-		return null;
+	public V getValue() {
+		return value;
 	}
 
 	@Override
-	public void setValue(Object value) {
-		// TODO Auto-generated method stub
-		
+	public void setValue(V value) {
+		this.value = value;
 	}
 
 	@Override
 	public boolean getColor() {
-		// TODO Auto-generated method stub
-		return false;
+		return color;
 	}
 
 	@Override
 	public void setColor(boolean color) {
-		// TODO Auto-generated method stub
-		
+		this.color = color;
 	}
 
 	@Override
 	public boolean isNull() {
-		// TODO Auto-generated method stub
-		return false;
+		return value == null;
 	}
 
 }
