@@ -1,0 +1,146 @@
+Total tests passed: 16/70
+testContainsAbsentKey(eg.edu.alexu.csd.filestructure.redblacktree.UnitTest): Fail contains a key in the tree
+			Error: java.lang.NullPointerException
+				eg.edu.alexu.csd.filestructure.redblacktree.RBTree.insertFixup(): Line 127
+				eg.edu.alexu.csd.filestructure.redblacktree.RBTree.insert(): Line 77
+testGetElementInTreemap(eg.edu.alexu.csd.filestructure.redblacktree.UnitTest): Fail in get element from treemap
+			Error: java.lang.AssertionError: expected:<8112> but was:<null>
+testDeleteAbsentElementsInTree(eg.edu.alexu.csd.filestructure.redblacktree.UnitTest): Fail to handle deletion
+			Error: java.lang.NullPointerException
+				eg.edu.alexu.csd.filestructure.redblacktree.RBTree.insertFixup(): Line 127
+				eg.edu.alexu.csd.filestructure.redblacktree.RBTree.insert(): Line 77
+testfloorEntryWithNull(eg.edu.alexu.csd.filestructure.redblacktree.UnitTest): Fail to handle floorEntry with null parameter
+			Error: java.lang.AssertionError
+testputAll(eg.edu.alexu.csd.filestructure.redblacktree.UnitTest): Fail in putAll
+			Error: java.lang.AssertionError: expected:<635> but was:<0>
+testLastEntry(eg.edu.alexu.csd.filestructure.redblacktree.UnitTest): Fail in lastEntry
+			Error: java.lang.AssertionError: expected:<5=soso5> but was:<null>
+testStressContains(eg.edu.alexu.csd.filestructure.redblacktree.UnitTest): Fail contains a key in the tree
+			Error: java.lang.NullPointerException
+				eg.edu.alexu.csd.filestructure.redblacktree.RBTree.insertFixup(): Line 127
+				eg.edu.alexu.csd.filestructure.redblacktree.RBTree.insert(): Line 77
+testContanisValueNormal(eg.edu.alexu.csd.filestructure.redblacktree.UnitTest): Fail in containsValue
+			Error: java.lang.AssertionError
+testpollFirstEntry(eg.edu.alexu.csd.filestructure.redblacktree.UnitTest): Fail in pollFirstEntry
+			Error: java.lang.AssertionError: expected:<5=soso5> but was:<null>
+testEntrySet(eg.edu.alexu.csd.filestructure.redblacktree.UnitTest): Fail in entrySet
+			Error: java.lang.NullPointerException
+testputWithNullValue(eg.edu.alexu.csd.filestructure.redblacktree.UnitTest): Fail in handle put with null parameter
+			Error: java.lang.AssertionError
+testUpdateValue(eg.edu.alexu.csd.filestructure.redblacktree.UnitTest): Fail to insert a key in the tree
+			Error: java.lang.NullPointerException
+				eg.edu.alexu.csd.filestructure.redblacktree.RBTree.insertFixup(): Line 127
+				eg.edu.alexu.csd.filestructure.redblacktree.RBTree.insert(): Line 77
+testCeilingEntryWithNull(eg.edu.alexu.csd.filestructure.redblacktree.UnitTest): Fail to handle ceiling with null parameter
+			Error: java.lang.AssertionError
+testpollLastEntry(eg.edu.alexu.csd.filestructure.redblacktree.UnitTest): Fail in pollLastEntry
+			Error: java.lang.AssertionError: expected:<5=soso5> but was:<null>
+testputAllWithNullValue(eg.edu.alexu.csd.filestructure.redblacktree.UnitTest): Fail in handle putAll with null parameter
+			Error: java.lang.AssertionError
+testInsertionWithNullKey(eg.edu.alexu.csd.filestructure.redblacktree.UnitTest): Fail to handle search with null parameter
+			Error: java.lang.NullPointerException
+				eg.edu.alexu.csd.filestructure.redblacktree.RBTree.insertFixup(): Line 127
+				eg.edu.alexu.csd.filestructure.redblacktree.RBTree.insert(): Line 77
+testFirstEntry(eg.edu.alexu.csd.filestructure.redblacktree.UnitTest): Fail in firstEntry
+			Error: java.lang.AssertionError: expected:<5=soso5> but was:<null>
+testNormalInsertion(eg.edu.alexu.csd.filestructure.redblacktree.UnitTest): Fail to insert a key in the tree
+			Error: java.lang.NullPointerException
+				eg.edu.alexu.csd.filestructure.redblacktree.RBTree.insertFixup(): Line 127
+				eg.edu.alexu.csd.filestructure.redblacktree.RBTree.insert(): Line 77
+testClearTree(eg.edu.alexu.csd.filestructure.redblacktree.UnitTest): Fail to clear the tree
+			Error: java.lang.NullPointerException
+				eg.edu.alexu.csd.filestructure.redblacktree.RBTree.insertFixup(): Line 127
+				eg.edu.alexu.csd.filestructure.redblacktree.RBTree.insert(): Line 77
+testContanisValueWithNullparameter(eg.edu.alexu.csd.filestructure.redblacktree.UnitTest): Fail in containsValue with null parameter
+			Error: java.lang.AssertionError
+testCeilingKey1(eg.edu.alexu.csd.filestructure.redblacktree.UnitTest): Fail in ceiling entry
+			Error: java.lang.NullPointerException
+testCeilingKey2(eg.edu.alexu.csd.filestructure.redblacktree.UnitTest): Fail in ceiling key
+			Error: java.lang.NullPointerException
+testLastKey(eg.edu.alexu.csd.filestructure.redblacktree.UnitTest): Fail in lastKey
+			Error: java.lang.AssertionError: expected:<5> but was:<null>
+testDeleteWhileInsertingInTree(eg.edu.alexu.csd.filestructure.redblacktree.UnitTest): Fail to handle deletion
+			Error: java.lang.NullPointerException
+				eg.edu.alexu.csd.filestructure.redblacktree.RBTree.insertFixup(): Line 127
+				eg.edu.alexu.csd.filestructure.redblacktree.RBTree.insert(): Line 77
+testSearchAbsentKey(eg.edu.alexu.csd.filestructure.redblacktree.UnitTest): Fail to search for a key in the tree
+			Error: java.lang.NullPointerException
+				eg.edu.alexu.csd.filestructure.redblacktree.RBTree.insertFixup(): Line 127
+				eg.edu.alexu.csd.filestructure.redblacktree.RBTree.insert(): Line 77
+testCeilingKeyWithNull(eg.edu.alexu.csd.filestructure.redblacktree.UnitTest): Fail to handle ceiling with null parameter
+			Error: java.lang.AssertionError
+testGetElementInTreemapWithNullParamerter(eg.edu.alexu.csd.filestructure.redblacktree.UnitTest): Fail to handle get with null parameter
+			Error: java.lang.AssertionError
+testSearchWithNull(eg.edu.alexu.csd.filestructure.redblacktree.UnitTest): Fail to handle search with null parameter
+			Error: java.lang.NullPointerException
+				eg.edu.alexu.csd.filestructure.redblacktree.RBTree.insertFixup(): Line 127
+				eg.edu.alexu.csd.filestructure.redblacktree.RBTree.insert(): Line 77
+testNormalContains(eg.edu.alexu.csd.filestructure.redblacktree.UnitTest): Fail contains a key in the tree
+			Error: java.lang.NullPointerException
+				eg.edu.alexu.csd.filestructure.redblacktree.RBTree.insertFixup(): Line 127
+				eg.edu.alexu.csd.filestructure.redblacktree.RBTree.insert(): Line 77
+testRemoveNoraml(eg.edu.alexu.csd.filestructure.redblacktree.UnitTest): Fail in remove
+			Error: java.lang.AssertionError
+testDeleteWithNull(eg.edu.alexu.csd.filestructure.redblacktree.UnitTest): Fail to handle deletion with null parameter
+			Error: java.lang.NullPointerException
+				eg.edu.alexu.csd.filestructure.redblacktree.RBTree.delete(): Line 171
+testInsertionWithNullValue(eg.edu.alexu.csd.filestructure.redblacktree.UnitTest): Fail to handle search with null parameter
+			Error: java.lang.NullPointerException
+				eg.edu.alexu.csd.filestructure.redblacktree.RBTree.insertFixup(): Line 127
+				eg.edu.alexu.csd.filestructure.redblacktree.RBTree.insert(): Line 77
+testFirstKey(eg.edu.alexu.csd.filestructure.redblacktree.UnitTest): Fail in firstKey
+			Error: java.lang.AssertionError: expected:<5> but was:<null>
+testCeilingEntry1(eg.edu.alexu.csd.filestructure.redblacktree.UnitTest): Fail in ceiling entry
+			Error: java.lang.NullPointerException
+testCeilingEntry2(eg.edu.alexu.csd.filestructure.redblacktree.UnitTest): Fail in ceiling entry
+			Error: java.lang.NullPointerException
+testHeadMap(eg.edu.alexu.csd.filestructure.redblacktree.UnitTest): Fail in headMap
+			Error: java.lang.NullPointerException
+testContaninKeyNormal(eg.edu.alexu.csd.filestructure.redblacktree.UnitTest): Fail in containsKey
+			Error: java.lang.AssertionError
+testfloorEntry1(eg.edu.alexu.csd.filestructure.redblacktree.UnitTest): Fail in floorEntry
+			Error: java.lang.NullPointerException
+testfloorEntry2(eg.edu.alexu.csd.filestructure.redblacktree.UnitTest): Fail in floor entry
+			Error: java.lang.NullPointerException
+testNormalSearch(eg.edu.alexu.csd.filestructure.redblacktree.UnitTest): Fail to search for a key in the tree
+			Error: java.lang.NullPointerException
+				eg.edu.alexu.csd.filestructure.redblacktree.RBTree.insertFixup(): Line 127
+				eg.edu.alexu.csd.filestructure.redblacktree.RBTree.insert(): Line 77
+testfloorKey1(eg.edu.alexu.csd.filestructure.redblacktree.UnitTest): Fail in floorKey
+			Error: java.lang.NullPointerException
+testfloorKey2(eg.edu.alexu.csd.filestructure.redblacktree.UnitTest): Fail in floor key
+			Error: java.lang.NullPointerException
+testHeadMapInclusive(eg.edu.alexu.csd.filestructure.redblacktree.UnitTest): Fail in headMap
+			Error: java.lang.NullPointerException
+testContaninKeyWithNullparameter(eg.edu.alexu.csd.filestructure.redblacktree.UnitTest): Fail in handle containsKey with null parameter
+			Error: java.lang.AssertionError
+testKeySet(eg.edu.alexu.csd.filestructure.redblacktree.UnitTest): Fail in Keyset
+			Error: java.lang.NullPointerException
+testStressDelete(eg.edu.alexu.csd.filestructure.redblacktree.UnitTest): Fail to handle deletion
+			Error: java.lang.NullPointerException
+				eg.edu.alexu.csd.filestructure.redblacktree.RBTree.insertFixup(): Line 127
+				eg.edu.alexu.csd.filestructure.redblacktree.RBTree.insert(): Line 77
+testputWithNullKey(eg.edu.alexu.csd.filestructure.redblacktree.UnitTest): Fail in handle put with null parameter
+			Error: java.lang.AssertionError
+testNormalInsertionWithRandomData(eg.edu.alexu.csd.filestructure.redblacktree.UnitTest): Fail to insert a key in the tree
+			Error: java.lang.AssertionError
+testfloorKeyWithNull(eg.edu.alexu.csd.filestructure.redblacktree.UnitTest): Fail to handle floorKey with null parameter
+			Error: java.lang.AssertionError
+testDeleteAllElementsInTree(eg.edu.alexu.csd.filestructure.redblacktree.UnitTest): Fail to handle deletion
+			Error: java.lang.NullPointerException
+				eg.edu.alexu.csd.filestructure.redblacktree.RBTree.insertFixup(): Line 127
+				eg.edu.alexu.csd.filestructure.redblacktree.RBTree.insert(): Line 77
+testValues(eg.edu.alexu.csd.filestructure.redblacktree.UnitTest): Fail in getting values
+			Error: java.lang.NullPointerException
+testContainsWithNull(eg.edu.alexu.csd.filestructure.redblacktree.UnitTest): Fail to handle contains with null parameter
+			Error: java.lang.NullPointerException
+				eg.edu.alexu.csd.filestructure.redblacktree.RBTree.insertFixup(): Line 127
+				eg.edu.alexu.csd.filestructure.redblacktree.RBTree.insert(): Line 77
+testDeleteRandomElementsInTree(eg.edu.alexu.csd.filestructure.redblacktree.UnitTest): Fail to handle deletion
+			Error: java.lang.NullPointerException
+				eg.edu.alexu.csd.filestructure.redblacktree.RBTree.insertFixup(): Line 127
+				eg.edu.alexu.csd.filestructure.redblacktree.RBTree.insert(): Line 77
+testStressSearch(eg.edu.alexu.csd.filestructure.redblacktree.UnitTest): Fail to search for a key in the tree
+			Error: java.lang.NullPointerException
+				eg.edu.alexu.csd.filestructure.redblacktree.RBTree.insertFixup(): Line 127
+				eg.edu.alexu.csd.filestructure.redblacktree.RBTree.insert(): Line 77
