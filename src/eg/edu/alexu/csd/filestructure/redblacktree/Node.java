@@ -14,7 +14,7 @@ public class Node <T extends Comparable<T>, V> implements INode<T, V>{
 		r_child = null;
 		value = null;
 		key = null;
-		color = INode.RED;
+		color = INode.BLACK;
 	}
 	
 	@Override
