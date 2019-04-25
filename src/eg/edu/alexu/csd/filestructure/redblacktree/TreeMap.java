@@ -7,7 +7,7 @@ import java.util.Map.Entry;
 import java.util.Set;
 
 public class TreeMap<T extends Comparable<T>,V> implements ITreeMap<T, V> {
-
+	private IRedBlackTree<T, V> rb = new RBTree<>();
 	@Override
 	public Entry<T, V> ceilingEntry(T key) {
 		// TODO Auto-generated method stub
