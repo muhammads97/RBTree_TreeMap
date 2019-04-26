@@ -9,6 +9,7 @@ public abstract class Test {
 
 	public static void main(String[] args) {
 		RBTree<Integer, Integer> rb = new RBTree<>();
+
 		rb.insert(10, 0);
 		rb.insert(15, 0);
 		rb.insert(20, 0);
@@ -29,5 +30,6 @@ public abstract class Test {
 		
 		System.out.println(t.ceilingEntry(13).getKey());
 		
+
 	}
 }
