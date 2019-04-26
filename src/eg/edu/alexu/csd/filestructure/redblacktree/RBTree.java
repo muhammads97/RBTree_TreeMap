@@ -160,6 +160,9 @@ public class RBTree<T extends Comparable<T>, V> implements IRedBlackTree<T, V> {
 
 	@Override
 	public void insert(T key, V value) {
+		if(key == null || value == null) {
+			throw new RuntimeErrorException(new Error());
+		}
 		INode<T, V> y = NIL;
 		INode<T, V> x = root;
 		while (x != NIL) {

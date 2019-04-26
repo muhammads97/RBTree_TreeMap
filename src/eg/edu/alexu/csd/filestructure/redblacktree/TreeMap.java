@@ -8,8 +8,11 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Queue;
 import java.util.Set;
+import java.util.Stack;
 
 import javax.management.RuntimeErrorException;
+
+import com.sun.corba.se.impl.orbutil.graph.Node;
 
 public class TreeMap<T extends Comparable<T>,V> implements ITreeMap<T, V> {
 	private RBTree<T, V> rb;
@@ -109,6 +112,9 @@ public class TreeMap<T extends Comparable<T>,V> implements ITreeMap<T, V> {
 
 	@Override
 	public boolean containsValue(V value) {
+		if(value == null) {
+			throw new RuntimeErrorException(new Error());
+		}
 		INode<T, V> root = rb.getRoot();
 		if(root == rb.getNILNode()) return false;
 		Queue<INode<T, V>> q = new LinkedList<INode<T,V>>();
@@ -157,6 +163,9 @@ public class TreeMap<T extends Comparable<T>,V> implements ITreeMap<T, V> {
 
 	@Override
 	public Entry<T, V> floorEntry(T key) {
+		if(key == null) {
+			throw new RuntimeErrorException(new Error());
+		}
 		INode<T, V> y = rb.getNILNode();
 		INode<T, V> x = rb.getRoot();
 		while (x != rb.getNILNode()) {
@@ -182,6 +191,9 @@ public class TreeMap<T extends Comparable<T>,V> implements ITreeMap<T, V> {
 
 	@Override
 	public T floorKey(T key) {
+		if(key == null) {
+			throw new RuntimeErrorException(new Error());
+		}
 		INode<T, V> y = rb.getNILNode();
 		INode<T, V> x = rb.getRoot();
 		while (x != rb.getNILNode()) {
@@ -207,19 +219,39 @@ public class TreeMap<T extends Comparable<T>,V> implements ITreeMap<T, V> {
 
 	@Override
 	public V get(T key) {
+		if(key == null) {
+			throw new RuntimeErrorException(new Error());
+		}
 		return rb.search(key);
 	}
 
 	@Override
 	public ArrayList<Entry<T, V>> headMap(T toKey) {
-		// TODO Auto-generated method stub
-		return null;
+		return headMap(toKey,false);
 	}
 
 	@Override
 	public ArrayList<Entry<T, V>> headMap(T toKey, boolean inclusive) {
-		// TODO Auto-generated method stub
-		return null;
+			if(toKey == null) {
+				throw new RuntimeErrorException(new Error());
+			}
+			INode<T, V> x = rb.getRoot();
+			Stack<INode<T, V>> stack = new Stack<>();
+			ArrayList<Entry<T, V>> array = new  ArrayList<Entry<T, V>>();
+			while(!stack.isEmpty() || x != NIL) {
+				while(x != NIL) {
+					stack.push(x);
+					x = x.getLeftChild();
+				}
+				x  = stack.pop();
+				if(x.getKey().compareTo(toKey) < 0 || (inclusive && x.getKey().compareTo(toKey) == 0)) {
+					array.add(new mapEntry(x.getKey(), x.getValue()));	
+				}else {
+					break;
+				}
+				x = x.getRightChild();
+			}
+			return array;
 	}
 
 	@Override
@@ -244,7 +276,6 @@ public class TreeMap<T extends Comparable<T>,V> implements ITreeMap<T, V> {
 
 	@Override
 	public Entry<T, V> lastEntry() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -256,7 +287,7 @@ public class TreeMap<T extends Comparable<T>,V> implements ITreeMap<T, V> {
 
 	@Override
 	public Entry<T, V> pollFirstEntry() {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
@@ -268,6 +299,9 @@ public class TreeMap<T extends Comparable<T>,V> implements ITreeMap<T, V> {
 
 	@Override
 	public void put(T key, V value) {
+		if(key == null) {
+			throw new RuntimeErrorException(new Error());
+		}
 		rb.insert(key, value);
 		size++;
 	}
