@@ -2,8 +2,11 @@ package eg.edu.alexu.csd.filestructure.redblacktree;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Queue;
 import java.util.Set;
 
 public class TreeMap<T extends Comparable<T>,V> implements ITreeMap<T, V> {
@@ -22,19 +25,35 @@ public class TreeMap<T extends Comparable<T>,V> implements ITreeMap<T, V> {
 
 	@Override
 	public void clear() {
-		// TODO Auto-generated method stub
+		rb.clear();
 		
 	}
 
 	@Override
 	public boolean containsKey(T key) {
-		// TODO Auto-generated method stub
-		return false;
+		
+		return rb.contains(key);
 	}
 
 	@Override
 	public boolean containsValue(V value) {
-		// TODO Auto-generated method stub
+		INode<T, V> root = rb.getRoot();
+		if(root == rb.getNILNode()) return false;
+		Queue<INode<T, V>> q = new LinkedList<INode<T,V>>();
+		q.add(root);
+		while(!q.isEmpty()) {
+			INode<T, V> n = q.poll();
+			if(n.getValue().equals(value)) {
+				return true;
+			} else {
+				if(n.getLeftChild() != rb.getNILNode()) {
+					q.add(n.getLeftChild());
+				}
+				if(n.getRightChild() != rb.getNILNode) {
+					q.add(n.getRightChild());
+				}
+			}
+		}
 		return false;
 	}
 
@@ -52,8 +71,16 @@ public class TreeMap<T extends Comparable<T>,V> implements ITreeMap<T, V> {
 
 	@Override
 	public T firstKey() {
-		// TODO Auto-generated method stub
-		return null;
+		INode<T, V> x = rb.getRoot();
+		if(x == rb.getNILNode()) {
+			return null;
+		}
+		else {
+			while(x.getLeftChild() != rb.getNILNode()) {
+				x = x.getLeftChild();
+			}
+		}
+		return x.getKey();
 	}
 
 	@Override
@@ -70,8 +97,7 @@ public class TreeMap<T extends Comparable<T>,V> implements ITreeMap<T, V> {
 
 	@Override
 	public V get(T key) {
-		// TODO Auto-generated method stub
-		return null;
+		return rb.search(key);
 	}
 
 	@Override
@@ -88,8 +114,23 @@ public class TreeMap<T extends Comparable<T>,V> implements ITreeMap<T, V> {
 
 	@Override
 	public Set<T> keySet() {
-		// TODO Auto-generated method stub
-		return null;
+		INode<T, V> root = rb.getRoot();
+		
+		Queue<INode<T, V>> q = new LinkedList<INode<T,V>>();
+		Set<T> keySet = new HashSet<T>();
+		if(root == rb.getNILNode()) return keySet;
+		q.add(root);
+		while(!q.isEmpty()) {
+			INode<T, V> n = q.poll();
+			keySet.add(n.getKey());
+			if(n.getLeftChild() != rb.getNILNode()) {
+				q.add(n.getLeftChild());
+			}
+			if(n.getRightChild() != rb.getNILNode) {
+				q.add(n.getRightChild());
+			}
+		}
+		return keySet;
 	}
 
 	@Override
