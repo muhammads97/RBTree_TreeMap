@@ -3,6 +3,7 @@ package eg.edu.alexu.csd.filestructure.redblacktree;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -11,8 +12,6 @@ import java.util.Set;
 import java.util.Stack;
 
 import javax.management.RuntimeErrorException;
-
-import com.sun.corba.se.impl.orbutil.graph.Node;
 
 public class TreeMap<T extends Comparable<T>,V> implements ITreeMap<T, V> {
 	private RBTree<T, V> rb;
@@ -137,14 +136,41 @@ public class TreeMap<T extends Comparable<T>,V> implements ITreeMap<T, V> {
 
 	@Override
 	public Set<Entry<T, V>> entrySet() {
-		// TODO Auto-generated method stub
-		return null;
+		INode<T, V> root = rb.getRoot();
+		Stack<INode<T, V>> s = new Stack<INode<T,V>>();
+		Set<Entry<T, V>> entrySet = new LinkedHashSet<Entry<T, V>>();
+		if(root == rb.getNILNode()) return entrySet;
+		s.add(root);
+		while(!s.isEmpty()) {
+			INode<T, V> x = s.peek().getLeftChild();
+			if(x != rb.getNILNode()) {
+				s.push(x);
+			} else {
+				do {
+				x = s.pop();
+				entrySet.add(new mapEntry(x.getKey(), x.getValue()));
+				//System.out.println(x.getKey());
+				} while (!s.isEmpty() && x.getRightChild() == rb.getNILNode());
+				if(x.getRightChild() != rb.getNILNode()) {
+					s.push(x.getRightChild());
+				}
+			}
+		}
+		return entrySet;
 	}
 
 	@Override
 	public Entry<T, V> firstEntry() {
-		// TODO Auto-generated method stub
-		return null;
+		INode<T, V> x = rb.getRoot();
+		if(x == rb.getNILNode()) {
+			return null;
+		}
+		else {
+			while(x.getLeftChild() != rb.getNILNode()) {
+				x = x.getLeftChild();
+			}
+		}
+		return new mapEntry(x.getKey(), x.getValue());
 	}
 
 	@Override
@@ -276,13 +302,30 @@ public class TreeMap<T extends Comparable<T>,V> implements ITreeMap<T, V> {
 
 	@Override
 	public Entry<T, V> lastEntry() {
-		return null;
+		INode<T, V> x = rb.getRoot();
+		if(x == rb.getNILNode()) {
+			return null;
+		}
+		else {
+			while(x.getRightChild() != rb.getNILNode()) {
+				x = x.getRightChild();
+			}
+		}
+		return new mapEntry(x.getKey(), x.getValue());
 	}
 
 	@Override
 	public T lastKey() {
-		// TODO Auto-generated method stub
-		return null;
+		INode<T, V> x = rb.getRoot();
+		if(x == rb.getNILNode()) {
+			return null;
+		}
+		else {
+			while(x.getRightChild() != rb.getNILNode()) {
+				x = x.getRightChild();
+			}
+		}
+		return x.getKey();
 	}
 
 	@Override
