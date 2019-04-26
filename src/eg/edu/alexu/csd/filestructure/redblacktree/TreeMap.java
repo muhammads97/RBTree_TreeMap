@@ -157,8 +157,27 @@ public class TreeMap<T extends Comparable<T>,V> implements ITreeMap<T, V> {
 
 	@Override
 	public Entry<T, V> floorEntry(T key) {
-		// TODO Auto-generated method stub
-		return null;
+		INode<T, V> y = rb.getNILNode();
+		INode<T, V> x = rb.getRoot();
+		while (x != rb.getNILNode()) {
+			y = x;
+			if (key.compareTo(x.getKey()) < 0) {
+				x = x.getLeftChild();
+			} else if (key.compareTo(x.getKey()) > 0) {
+				x = x.getRightChild();
+			} else if (key.compareTo(x.getKey()) == 0) {
+				return new mapEntry(x.getKey(), x.getValue());
+			}
+		}
+		if(key.compareTo(y.getKey()) > 0) {
+			return new mapEntry(y.getKey(), y.getValue());
+		}
+		while(y != rb.getNILNode() && y != y.getParent().getRightChild()) {
+			y = y.getParent();
+		}
+		if(y == rb.getNILNode()) return null;
+		y = y.getParent();
+		return new mapEntry(y.getKey(), y.getValue());
 	}
 
 	@Override
