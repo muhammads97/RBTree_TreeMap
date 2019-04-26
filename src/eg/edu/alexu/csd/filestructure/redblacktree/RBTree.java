@@ -4,7 +4,7 @@ import javax.management.RuntimeErrorException;
 
 public class RBTree<T extends Comparable<T>, V> implements IRedBlackTree<T, V> {
 	private INode<T, V> root;
-
+	private int size = 0; 
 	class Node implements INode<T, V> {
 		private INode<T, V> parent;
 		private INode<T, V> l_child;
@@ -108,6 +108,7 @@ public class RBTree<T extends Comparable<T>, V> implements IRedBlackTree<T, V> {
 	@Override
 	public void clear() {
 		root = NIL;
+		size = 0;
 	}
 
 	@Override
@@ -177,6 +178,7 @@ public class RBTree<T extends Comparable<T>, V> implements IRedBlackTree<T, V> {
 			}
 				
 		}
+		size++;
 		INode<T, V> z = new Node();
 		z.setKey(key);
 		z.setValue(value);
@@ -330,6 +332,7 @@ public class RBTree<T extends Comparable<T>, V> implements IRedBlackTree<T, V> {
 		if (yOriginColor == INode.BLACK) {
 			deleteFixUp(x);
 		}
+		size--;
 		return true;
 	}
 
@@ -396,7 +399,7 @@ public class RBTree<T extends Comparable<T>, V> implements IRedBlackTree<T, V> {
 
 
 
-	public INode<T, V> minimum(INode<T, V> x) {
+	private INode<T, V> minimum(INode<T, V> x) {
 		while (x.getLeftChild() != NIL) {
 			x = x.getLeftChild();
 		}
@@ -415,6 +418,9 @@ public class RBTree<T extends Comparable<T>, V> implements IRedBlackTree<T, V> {
 	}
 	public INode<T, V> getNILNode(){
 		return NIL;
+	}
+	public int size(){
+		return size;
 	}
 
 }
