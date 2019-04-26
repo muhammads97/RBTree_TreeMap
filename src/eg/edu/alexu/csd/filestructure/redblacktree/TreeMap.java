@@ -7,13 +7,61 @@ import java.util.Map.Entry;
 import java.util.Set;
 
 public class TreeMap<T extends Comparable<T>,V> implements ITreeMap<T, V> {
-	private IRedBlackTree<T, V> rb = new RBTree<>();
+	private RBTree<T, V> rb;
+	private INode<T, V> NIL ;
+	class mapEntry implements Entry<T, V>{
+		private T key ;
+		private V value;
+		public mapEntry(T key ,V value) {
+			this.key = key;
+			this.value = value;
+		}
+		@Override
+		public T getKey() {
+			// TODO Auto-generated method stub
+			return key;
+		}
+
+		@Override
+		public V getValue() {
+			// TODO Auto-generated method stub
+			return value;
+		}
+
+		@Override
+		public V setValue(V arg0) {
+			V v =  value;
+			value = arg0;
+			return v;
+		}
+		
+	}
+	public TreeMap() {
+		rb = new RBTree<>();
+		NIL = rb.getNILNode();
+		
+	}
+	
 	@Override
 	public Entry<T, V> ceilingEntry(T key) {
-		// TODO Auto-generated method stub
-		return null;
+		INode<T, V> x =  rb.getRoot();
+		Entry<T, V> e = null;
+		while(true) {
+			if(x == NIL) {
+				return null;
+			}
+			if (key.compareTo(x.getKey()) < 0) {
+						x = x.getLeftChild();
+			} else if (key.compareTo(x.getKey()) > 0) {
+						x = x.getRightChild();
+			} else if (key.compareTo(x.getKey()) == 0) {
+						e = new 
+			}				
+		}
+		
+		
 	}
-
+	
 	@Override
 	public T ceilingKey(T key) {
 		// TODO Auto-generated method stub
