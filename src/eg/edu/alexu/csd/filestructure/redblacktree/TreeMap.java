@@ -6,9 +6,13 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import javax.management.RuntimeErrorException;
+
 public class TreeMap<T extends Comparable<T>,V> implements ITreeMap<T, V> {
 	private RBTree<T, V> rb;
 	private INode<T, V> NIL ;
+	private int size ;
+	
 	class mapEntry implements Entry<T, V>{
 		private T key ;
 		private V value;
@@ -37,35 +41,53 @@ public class TreeMap<T extends Comparable<T>,V> implements ITreeMap<T, V> {
 		
 	}
 	public TreeMap() {
-		rb = new RBTree<>();
+		this.rb = new RBTree<>();
+		size = 0;
 		NIL = rb.getNILNode();
-		
 	}
-	
+
 	@Override
 	public Entry<T, V> ceilingEntry(T key) {
+		if(key == null) {
+			throw new RuntimeErrorException(new Error());
+		}
 		INode<T, V> x =  rb.getRoot();
 		Entry<T, V> e = null;
+		INode<T, V> oldx = x;
 		while(true) {
 			if(x == NIL) {
-				return null;
+				INode<T, V> y = oldx;
+				while(y != NIL) {
+					if(y.getKey().compareTo(key) > 0) {
+						e = new mapEntry(y.getKey(),y.getValue());
+						break;
+					}
+					x = y ;
+					y = y.getParent();
+				}
+				break;
 			}
 			if (key.compareTo(x.getKey()) < 0) {
+						oldx =x;
 						x = x.getLeftChild();
 			} else if (key.compareTo(x.getKey()) > 0) {
+						oldx =x;
 						x = x.getRightChild();
 			} else if (key.compareTo(x.getKey()) == 0) {
-						e = new 
+						e = new mapEntry(key, x.getValue());
+						break;
 			}				
 		}
-		
-		
+			return e;
 	}
 	
 	@Override
 	public T ceilingKey(T key) {
-		// TODO Auto-generated method stub
-		return null;
+		Entry<T, V> e = ceilingEntry(key);
+		if(e == null) {
+			return null;
+		}
+		return e.getKey();
 	}
 
 	@Override
@@ -136,7 +158,7 @@ public class TreeMap<T extends Comparable<T>,V> implements ITreeMap<T, V> {
 
 	@Override
 	public Set<T> keySet() {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
@@ -166,26 +188,33 @@ public class TreeMap<T extends Comparable<T>,V> implements ITreeMap<T, V> {
 
 	@Override
 	public void put(T key, V value) {
-		// TODO Auto-generated method stub
-		
+		rb.insert(key, value);
+		size++;
 	}
 
 	@Override
 	public void putAll(Map<T, V> map) {
-		// TODO Auto-generated method stub
-		
+		if(map == null) {
+			throw new RuntimeErrorException(new Error());
+		}
+		for(Entry<T, V> e :map.entrySet()) {
+			rb.insert(e.getKey(), e.getValue());
+		}
+		size +=map.size();
 	}
 
 	@Override
 	public boolean remove(T key) {
-		// TODO Auto-generated method stub
-		return false;
+		boolean x = rb.delete(key);
+		if(x) {
+			size--;
+		}
+		return x;
 	}
 
 	@Override
 	public int size() {
-		// TODO Auto-generated method stub
-		return 0;
+		return size;
 	}
 
 	@Override
