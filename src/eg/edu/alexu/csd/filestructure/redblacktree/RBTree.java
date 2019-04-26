@@ -391,83 +391,9 @@ public class RBTree<T extends Comparable<T>, V> implements IRedBlackTree<T, V> {
 	 * @param x
 	 */
 
-	// private void DeleteFixUp2(INode<T, V> x) {
-	// while (x != root && x.getColor() == INode.BLACK) {
-	// INode<T, V> p = x.getParent();
-	// if( x == p.getLeftChild() && p.getRightChild().getColor() == INode.BLACK
-	// && p.getRightChild() == NIL) {
-	// x.setColor(INode.RED);
-	// x = x.getParent();
-	// continue;
-	// }else if( x == p.getRightChild() && p.getLeftChild().getColor() ==
-	// INode.BLACK
-	// && p.getLeftChild() == NIL) {
-	// x.setColor(INode.RED);
-	// x=x.getParent();
-	// continue;
-	// } else if ( x == p.getLeftChild() && p.getRightChild().getColor() ==
-	// INode.BLACK
-	// && p.getRightChild().getRightChild().getColor() == INode.RED) {
-	// p.getRightChild().getRightChild().setColor(INode.BLACK);
-	// leftRotate(p.getRightChild());
-	// continue;
-	// } else if ( x == p.getLeftChild() && p.getRightChild().getColor() ==
-	// INode.BLACK
-	// && p.getRightChild().getLeftChild().getColor() == INode.RED) {
-	// p.getRightChild().getLeftChild().setColor(INode.BLACK);
-	// p.getRightChild().setColor(INode.RED);
-	// rightRotate(p.getRightChild());
-	// p.getRightChild().getRightChild().setColor(INode.BLACK);
-	// leftRotate(p.getRightChild());
-	// continue;
-	// } else if ( x == p.getRightChild() && p.getLeftChild().getColor() ==
-	// INode.BLACK
-	// && p.getLeftChild().getLeftChild().getColor() == INode.RED) {
-	// p.getLeftChild().getLeftChild().setColor(INode.BLACK);
-	// rightRotate(p.getLeftChild());
-	// continue;
-	// } else if ( x == p.getRightChild() && p.getLeftChild().getColor() ==
-	// INode.BLACK
-	// && p.getLeftChild().getRightChild().getColor() == INode.RED) {
-	// p.getLeftChild().getRightChild().setColor(INode.BLACK);
-	// p.getLeftChild().setColor(INode.RED);
-	// leftRotate(p.getLeftChild());
-	// p.getLeftChild().getLeftChild().setColor(INode.BLACK);
-	// rightRotate(p.getLeftChild());
-	// continue;
-	// }
-	//
-	// if ( x == p.getRightChild() && p.getLeftChild().getColor() == INode.BLACK &&
-	// p.getLeftChild().getLeftChild().getColor() == INode.BLACK
-	// && p.getLeftChild().getRightChild().getColor() == INode.BLACK) {
-	// p.getLeftChild().setColor(INode.RED);
-	// x = x.getParent();
-	// continue;
-	// }else if( x == p.getLeftChild() &&p.getRightChild().getColor() == INode.BLACK
-	// && p.getRightChild().getLeftChild().getColor() == INode.BLACK
-	// && p.getRightChild().getRightChild().getColor() == INode.BLACK) {
-	// p.getRightChild().setColor(INode.RED);
-	// x = x.getParent();
-	// continue;
-	// }
-	// if(x == p.getRightChild() && p.getLeftChild().getColor() == INode.RED) {
-	// p.setColor(INode.RED);
-	// p.getLeftChild().setColor(INode.BLACK);
-	// leftRotate(p.getLeftChild());
-	// continue;
-	// } else if(x == p.getLeftChild() && p.getRightChild().getColor() == INode.RED)
-	// {
-	// p.setColor(INode.RED);
-	// p.getRightChild().setColor(INode.BLACK);
-	// leftRotate(p.getRightChild());
-	// continue;
-	// }
-	//
-	// }
-	// x.setColor(INode.BLACK);
-	// }
 
-	private INode<T, V> minimum(INode<T, V> x) {
+
+	public INode<T, V> minimum(INode<T, V> x) {
 		while (x.getLeftChild() != NIL) {
 			x = x.getLeftChild();
 		}
@@ -484,47 +410,8 @@ public class RBTree<T extends Comparable<T>, V> implements IRedBlackTree<T, V> {
 		}
 		v.setParent(u.getParent());
 	}
-	// private void insertfixup(INode<T, V> z) {
-	// if (root == z) {
-	// root.setColor(INode.BLACK);
-	// return;
-	// }
-	// while(z != root && z.getParent().getColor() == INode.RED) {
-	// if(z.getParent() == z.getParent().getParent().getLeftChild()) {
-	// INode<T, V> y = z.getParent().getParent().getRightChild();
-	// if(y.getColor() == INode.RED) {
-	// z.getParent().setColor(INode.BLACK);
-	// y.setColor(INode.BLACK);
-	// z.getParent().getParent().setColor(INode.RED);
-	// z = z.getParent().getParent();
-	// }
-	// else {
-	// if(z == z.getParent().getRightChild()) {
-	// z = z.getParent();
-	// leftRotate(z);
-	// }
-	// z.getParent().setColor(INode.BLACK);
-	// z.getParent().getParent().setColor(INode.RED);
-	// rightRotate(z.getParent().getParent());
-	// }
-	// }else {
-	// INode<T, V> y = z.getParent().getParent().getLeftChild();
-	// if(y.getColor() == INode.RED) {
-	// z.getParent().setColor(INode.BLACK);
-	// y.setColor(INode.BLACK);
-	// z.getParent().getParent().setColor(INode.RED);
-	// z = z.getParent().getParent();
-	// }
-	// else {
-	// if(z == z.getParent().getLeftChild()) {
-	// z = z.getParent();
-	// rightRotate(z);
-	// }
-	// z.getParent().setColor(INode.BLACK);
-	// z.getParent().getParent().setColor(INode.RED);
-	// leftRotate(z.getParent().getParent());
-	// }
-	// }
-	// }
-	// }
+	public INode<T, V> getNILNode(){
+		return NIL;
+	}
+
 }
